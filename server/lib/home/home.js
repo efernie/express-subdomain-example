@@ -1,4 +1,5 @@
 module.exports = function (dir) {
+
   var express = require('express')
     , ENV = process.env['NODE_ENV'] || 'development'
     , gzip = require('connect-gzip')
@@ -24,5 +25,6 @@ module.exports = function (dir) {
 
   require('./index')(app);
 
+  // Return the server
   return app;
 };

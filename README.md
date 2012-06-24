@@ -47,7 +47,7 @@
 
 2. The index.js file
 
-  This file is the main routing file.
+  This file is the main routing file. You require the standard stuff, like express the enviorment and config. Also define the app var to create the server. Then require the subdomain servers, because they are defined as modules under the lib folder. Also I am including the base directory when I pass it along to the subdomains.
 
   ```javascript
     var express = require('express')
