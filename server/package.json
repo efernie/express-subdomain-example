@@ -1,10 +1,9 @@
 {
-  "name": "My Personal Site",
-  "description": "My personal site code.",
+  "name": "Subdomain_example",
+  "description": "AN example of how to use subdomains in nodejs",
   "version": "0.0.1",
   "dependencies": {
     "express": "2.x",
-    "underscore": "1.x",
     "jade": "0.20.x",
     "connect-gzip": "x"
   }

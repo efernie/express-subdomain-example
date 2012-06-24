@@ -1,8 +1,11 @@
 var express = require('express')
   , ENV = process.env['NODE_ENV'] || 'development'
   , config = require('./config')[ENV]
+  // The express server to listen for the subdomains
   , app = express.createServer()
+  // The main application
   , home = require('./lib/home/home')(__dirname)
+  // The example subdomain
   , projects = require('./lib/projects/projects')(__dirname)
   ;
 
@@ -16,4 +19,3 @@ app.listen(config.port, function () {
   var addr = app.address();
   console.log(('   app listening on http://' + addr.address + ':' + addr.port));
 });
-
