@@ -5,9 +5,12 @@ var express = require('express')
   , app = express.createServer()
   , home = require('./lib/home/home')(__dirname)
   , projects = require('./lib/projects/projects')(__dirname)
-;
+  ;
 
+// Main application
 app.use(express.vhost('localhost', home));
+
+// Example sub domain
 app.use(express.vhost('projects.localhost', projects));
 
 if (cluster.isMaster) {
