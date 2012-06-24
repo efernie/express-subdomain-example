@@ -2,7 +2,7 @@
 ### This is an example of how to use subdomains with express for a node application.
 ---
 
-For the purpose of this demo is to show you how to set up a node application with sub domains. Also to show you how to organize the application logic for each domain.
+  For the purpose of this demo is to show you how to set up a node application with sub domains. Also to show you how to organize the application logic for each domain.
 ---
 
 ## First Steps
