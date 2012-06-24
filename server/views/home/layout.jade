@@ -1,0 +1,20 @@
+doctype 5
+html(lang="en").no-js
+  head
+    title= typeof(title) !== 'undefined' ? title : "Fern's site"
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1", charset="utf-8")
+    meta(name="viewport", content="width=device-width")
+    //link(rel="stylesheet", href="/assets/css/style.css")
+    link(rel="stylesheet/less", href="/assets/less/style.less")
+    script(src="/assets/js/less-1.3.0.min.js")
+    block styles
+    script(src="/assets/js/modernizr-2.5.3-respond-1.1.0.min.js")
+  body
+    .container-fluid
+      block content
+
+    script(src="/assets/js/jquery-1.7.2.min.js")
+    script(src="/assets/js/bootstrap/bootstrap.min.js")
+
+    //script(data-main="/src/config", src="/assets/js/require.js")
+    block scripts
