@@ -7,6 +7,7 @@ module.exports = function (dir) {
     , publicDir = dir + '/../client'
     ;
 
+  //  Set the view directory to where this subdomain views are located.
   app.set('views', dir + '/views/home')
     .set('view options', { 'layout': false, pretty: true })
     .set('view engine', 'jade');

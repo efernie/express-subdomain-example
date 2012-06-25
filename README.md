@@ -47,7 +47,7 @@
 
 2. The index.js file
 
-  This file is the main routing file. You require the standard stuff, like express the enviorment and config. Also define the app var to create the server. Then require the subdomain servers, because they are defined as modules under the lib folder. Also I am including the base directory when I pass it along to the subdomains.
+  This file is the main routing file. You require the standard stuff, like express the enviorment and config. Also define the app var to create the server. Then require the subdomain servers, because they are defined as modules under the lib folder. Also I am including the base directory when I pass it along to the subdomains. Then have this listen on what ever port you choose.
 
   ```javascript
     var express = require('express')
@@ -69,6 +69,71 @@
 
     app.listen(config.port, function () {
       var addr = app.address();
-      console.log(('   app listening on http://' + addr.address + ':' + addr.port));
+      console.log(('app listening on http://' + addr.address + ':' + addr.port));
     });
   ```
+
+3. Set up the main application.
+
+    This file is simply called ```home.js```. In this file I am using jade views to handle the html pages. Also seperating the router in a routes.js file.
+
+    ```javascript
+      module.exports = function (dir) {
+
+        var express = require('express')
+          , ENV = process.env['NODE_ENV'] || 'development'
+          , gzip = require('connect-gzip')
+          , app = express.createServer()
+          , publicDir = dir + '/../client'
+          ;
+
+        //  Set the view directory to where this subdomain views are located.
+        app.set('views', dir + '/views/home')
+          .set('view options', { 'layout': false, pretty: true })
+          .set('view engine', 'jade');
+
+
+        app.use(express.bodyParser())
+           .use(express.cookieParser())
+           .use(express.favicon())
+           .use(gzip.gzip({ flags: '--best' }))
+        ;
+
+        app.use(express.static(publicDir));
+
+        // Router
+        app.use(app.router);
+
+        require('./index')(app);
+
+        // Return the server
+        return app;
+      };
+    ```
+
+  This is the index.js file
+
+  ```javascript
+    module.exports = function () {
+      require('./routes').apply(this, arguments);
+    };
+  ```
+
+  This is the routes file
+
+  ```javascript
+    var ENV = process.env['NODE_ENV'] || 'development'
+      , config = require('../../config')[ENV]
+      ;
+
+    module.exports = function (app) {
+
+      // Index Page
+      app.get('/', function(req, res) {
+        res.render('index');
+      });
+
+    }
+  ```
+
+4. Do the same thing as for the main application but in the other subdomain folder with different folder/script names.
