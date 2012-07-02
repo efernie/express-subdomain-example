@@ -67,7 +67,7 @@
     // Example sub domain
     app.use(express.vhost('projects.localhost', projects));
 
-    app.listen(config.port, function () {
+    app.listen(3000, function () {
       var addr = app.address();
       console.log(('app listening on http://' + addr.address + ':' + addr.port));
     });
