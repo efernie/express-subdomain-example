@@ -54,7 +54,7 @@
       , ENV = process.env['NODE_ENV'] || 'development'
       , config = require('./config')[ENV]
       // The express server to listen for the subdomains
-      , app = express.createServer()
+      , app = express()
       // The main application
       , home = require('./lib/home/home')(__dirname)
       // The example subdomain
@@ -83,7 +83,7 @@
         var express = require('express')
           , ENV = process.env['NODE_ENV'] || 'development'
           , gzip = require('connect-gzip')
-          , app = express.createServer()
+          , app = express()
           , publicDir = dir + '/../client'
           ;
 
