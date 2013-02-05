@@ -1,10 +1,10 @@
 {
   "name": "Subdomain_example",
-  "description": "AN example of how to use subdomains in nodejs",
+  "description": "An example of how to use subdomains in nodejs",
   "version": "0.0.1",
   "dependencies": {
-    "express": "2.x",
-    "jade": "0.20.x",
-    "connect-gzip": "x"
-  }
+    "express": "3.1.0",
+    "jade": "0.20.x"
+  },
+  "engines": { "node": "0.8.14" }
 }

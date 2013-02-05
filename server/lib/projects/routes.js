@@ -1,6 +1,5 @@
-var ENV = process.env['NODE_ENV'] || 'development'
-  , config = require('../../config')[ENV]
-  ;
+var ENV = process.env['NODE_ENV'] || 'development',
+    config = require('../../config')[ENV];
 
 module.exports = function (app) {
 
