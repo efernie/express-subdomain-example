@@ -50,16 +50,15 @@
   This file is the main routing file. You require the standard stuff, like express the enviorment and config. Also define the app var to create the server. Then require the subdomain servers, because they are defined as modules under the lib folder. Also I am including the base directory when I pass it along to the subdomains. Then have this listen on what ever port you choose.
 
   ```javascript
-    var express = require('express')
-      , ENV = process.env['NODE_ENV'] || 'development'
-      , config = require('./config')[ENV]
+    var express = require('express'),
+        ENV = process.env['NODE_ENV'] || 'development',
+        config = require('./config')[ENV],
       // The express server to listen for the subdomains
-      , app = express()
+        app = express(),
       // The main application
-      , home = require('./lib/home/home')(__dirname)
+        home = require('./lib/home/home')(__dirname),
       // The example subdomain
-      , projects = require('./lib/projects/projects')(__dirname)
-      ;
+        projects = require('./lib/projects/projects')(__dirname);
 
     // Main application
     app.use(express.vhost('localhost', home));
@@ -80,12 +79,10 @@
     ```javascript
       module.exports = function (dir) {
 
-        var express = require('express')
-          , ENV = process.env['NODE_ENV'] || 'development'
-          , gzip = require('connect-gzip')
-          , app = express()
-          , publicDir = dir + '/../client'
-          ;
+        var express = require('express'),
+            ENV = process.env['NODE_ENV'] || 'development',
+            app = express(),
+            publicDir = dir + '/../client';
 
         //  Set the view directory to where this subdomain views are located.
         app.set('views', dir + '/views/home')
@@ -95,9 +92,7 @@
 
         app.use(express.bodyParser())
            .use(express.cookieParser())
-           .use(express.favicon())
-           .use(gzip.gzip({ flags: '--best' }))
-        ;
+           .use(express.favicon());
 
         app.use(express.static(publicDir));
 
@@ -122,9 +117,9 @@
   This is the routes file
 
   ```javascript
-    var ENV = process.env['NODE_ENV'] || 'development'
-      , config = require('../../config')[ENV]
-      ;
+    var ENV = process.env['NODE_ENV'] || 'development',
+        config = require('../../config')[ENV];
+
 
     module.exports = function (app) {
 
