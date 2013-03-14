@@ -7,7 +7,16 @@
 ---
 
 ## First Steps
-1. Set up project directory
+
+1. git clone https://github.com/efernie/express-subdomain-example.git
+2. cd express-subdomain-example/server
+3. Install express ```npm install express```
+4. Install jade ```npm install```
+5. Start the server ```node index.ejs```
+6. Browse to localhost:3000 and projects.localhost:3000 to view the domains
+
+
+##Project Directory Layout
 
   ```
   --client
@@ -27,11 +36,6 @@
   ------some subdomain name
   ```
 
-2. Install express ```npm install express```
-
-3. Configure host file
-  Set the host file to point to the ip of the localhost
-  eg: 0.0.0.0 projects.localhost
 
 ## Sample Application
 1. Set up config file
