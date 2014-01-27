@@ -134,3 +134,6 @@
 4. Do the same thing as for the main application but in the other subdomain folder with different a script name.
 
 5. ```node index.js``` in the server folder. Then checkout projects.localhost to see the subdomain.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/efernie/express-subdomain-example/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
