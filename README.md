@@ -29,8 +29,8 @@
 
 2. Install express ```npm install express```
 
-3. Configure host file
-  Set the host file to point to the ip of the localhost
+3. Configure hosts file
+  Set the hosts file to point to the ip of the localhost
   eg: 0.0.0.0 projects.localhost
 
 ## Sample Application

@@ -16,5 +16,5 @@ app.use(express.vhost('localhost', home));
 app.use(express.vhost('projects.localhost', projects));
 
 app.listen(config.port, function () {
-  console.log(('app listening on http://localhost:3000'));
+  console.log(('app listening on http://localhost:'+config.port));
 });
